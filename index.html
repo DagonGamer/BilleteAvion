@@ -24,6 +24,28 @@
             background: rgb(129, 213, 255);
         }
 
+        button {
+            position: fixed;
+            left: calc( 50% - var(--Tam) * 10 / 2 );
+            top: calc( 50vh + var(--Tam) * 54 / 2 + var(--Tam) * 2.5 );
+            width: calc( var(--Tam) * 10 );
+            height: calc( var(--Tam) * 10 );
+            padding: 0px;
+            border: none;
+            border-radius: var(--Tam);
+            background: white;
+            font-size: calc( var(--Tam) * 5 );
+        }
+
+        @media (orientation: landscape) {
+
+            button {
+                top: calc( 50vh - var(--Tam) * 10 / 2 );
+                left: calc( 50% + var(--Tam) * 86 / 2 + var(--Tam) * 2.5);
+            }
+            
+        }
+
         div.Billete {
             width: calc( var(--Tam) * 86 );
             height: calc( var(--Tam) * 54 );
@@ -127,27 +149,14 @@
         }
 
         p.Codigo {
-	font-family: monospace !important;
-	font-size: calc( var(--Tam) * 1.83 );
-	width: 80%;
-	text-align: justify;
-	position: absolute;
-	top: 76%;
-	left: 10%;
-	line-break: anywhere;
-        }
-
-        button {
-            position: fixed;
-            bottom: var(--Tam);
-            right: var(--Tam);
-            width: calc( var(--Tam) * 5 );
-            height: calc( var(--Tam) * 5 );
-            padding: 0px;
-            border: none;
-            border-radius: var(--Tam);
-            background: white;
-            font-size: calc( var(--Tam) * 2.5 );
+            font-family: monospace !important;
+            font-size: calc( var(--Tam) * 1.83 );
+            width: 80%;
+            text-align: justify;
+            position: absolute;
+            top: 76%;
+            left: 10%;
+            line-break: anywhere;
         }
 
         div.Billete.Trasero div.Cabecera {
