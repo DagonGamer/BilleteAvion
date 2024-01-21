@@ -98,18 +98,38 @@
             overflow: hidden;
         }
 
-        div.Contenido > img {
+        div.Contenido > img[src="Mapamundi.png"] {
             position: absolute;
             opacity: 0.2;
-            width: 61%;
-            left: 19.5%;
+            width: 55%;
+            top: 5%;
         }
 
-        div.Contenido p {
+        div.Contenido > p {
             margin: 0px;
             position: absolute;
             color: black;
             font-family: Blogger-Sans;
+        }
+
+        div.Contenido > img[src="QR.png"] {
+            position: absolute;
+            width: 45%;
+            left: 52%;
+            top: 6%;
+        }
+
+        div.Destinos {
+            position: absolute;
+            top: 37%;
+            left: 18%;
+        }
+
+        div.Destinos p {
+            margin: 0px;
+            font-size: calc( var(--Tam) * 2.5 );
+            font-family: Blogger-Sans;
+            white-space: break-spaces;
         }
 
     </style>
@@ -126,6 +146,15 @@
             <img src="Mapamundi.png" alt="">
             <p style="font-size: calc( var(--Tam) * 5);top: 5%;left: 5%;">Primera Clase</p>
             <p style="font-size: calc( var(--Tam) * 3 );top: 20%;left: 25%;">David's Airlines</p>
+            <div class="Destinos">
+                <p>Destinos favoritos:</p>
+                <p>  Londres</p>
+                <p>  Madrid</p>
+                <p>  París</p>
+                <p>  Tokio</p>
+                <p>  Washington DC</p>
+            </div>
+            <img src="QR.png" alt="">
         </div>
     </div>
     
