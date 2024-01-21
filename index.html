@@ -52,19 +52,9 @@
             }
 
             100% {
-                left: 100%;
+                left: -1.2%;
             }
             
-        }
-
-        div.Cabecera::before {
-            content: "";
-            background: linear-gradient(45deg, var(--c11) 0%, var(--c12) 10%, var(--c21) 10%, var(--c22) 20%, var(--c11) 20%, var(--c12) 30%, var(--c21) 30%, var(--c22) 40%, var(--c11) 40%, var(--c12) 50%, var(--c21) 50%, var(--c22) 60%, var(--c11) 60%, var(--c12) 70%, var(--c21) 70%, var(--c22) 80%, var(--c11) 80%, var(--c12) 90%, var(--c21) 90%, var(--c22) 100%);
-            width: 113%;
-            height: 20%;
-            position: absolute;
-            left: 0%;
-            animation: Cabecera 10s linear -5s infinite forwards;
         }
 
         div.Cabecera > p {
@@ -82,12 +72,16 @@
 
         div.Cabecera::after {
             content: "";
-            background: linear-gradient(45deg, var(--c11) 0%, var(--c12) 10%, var(--c21) 10%, var(--c22) 20%, var(--c11) 20%, var(--c12) 30%, var(--c21) 30%, var(--c22) 40%, var(--c11) 40%, var(--c12) 50%, var(--c21) 50%, var(--c22) 60%, var(--c11) 60%, var(--c12) 70%, var(--c21) 70%, var(--c22) 80%, var(--c11) 80%, var(--c12) 90%, var(--c21) 90%, var(--c22) 100%);
-            width: 113%;
+            background: repeating-linear-gradient(45deg,
+                var(--c11) calc( var(--Tam) * 0 ),
+                var(--c12)  calc( var(--Tam) * 10 ),
+                var(--c21)  calc( var(--Tam) * 10 ),
+                var(--c22)  calc( var(--Tam) * 20 ));
+            width: 200%;
             height: 20%;
             position: absolute;
             left: 0%;
-            animation: Cabecera 10s linear 0s infinite forwards;
+            animation: Cabecera 10s linear infinite forwards;
         }
 
         div.Contenido {
@@ -132,12 +126,55 @@
             white-space: break-spaces;
         }
 
+        button {
+            position: fixed;
+            bottom: var(--Tam);
+            right: var(--Tam);
+            width: calc( var(--Tam) * 5 );
+            height: calc( var(--Tam) * 5 );
+            padding: 0px;
+            border: none;
+            border-radius: var(--Tam);
+            background: white;
+            font-size: calc( var(--Tam) * 2.5 );
+        }
+
+        div.Billete.Trasero div.Cabecera {
+            height: 100%;
+        }
+
+        div.Billete.Trasero div.Cabecera::after {
+            height: 100%;
+        }
+
+        div.Billete.Trasero p {
+            color: white;
+            font-family: Blogger-Sans;
+            font-size: calc( var(--Tam) * 7 );
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            top: 20%;
+            height: calc( var(--Tam) * 7 );
+        }
+
+        div.Billete.Trasero p.Codigo {
+            font-family: monospace;
+            font-size: calc( var(--Tam) * 2.5 );
+            width: 55%;
+            text-align: justify;
+            position: absolute;
+            top: 50%;
+            left: 22.5%;
+            line-break: anywhere;
+        }
+
     </style>
 
 </head>
 <body>
 
-    <div class="Billete">
+    <div class="Billete Delantero" style="transform: rotateY(0deg);">
         <div class="Cabecera">
             <p style="text-align: left;">  Billete Vitalicio</p>
             <p style="text-align: right;">Claudia Ladrón  </p>
@@ -157,6 +194,36 @@
             <img src="QR.png" alt="">
         </div>
     </div>
+
+    <button>⭯</button>
+
+    <div class="Billete Trasero" style="transform: rotateY(270deg);">
+        <div class="Cabecera">
+            <p>David's Airlines</p>
+            <p class="Codigo">436c61756469612c2065726573206c61206d656a6f722063686963612064656c206d756e646f2c0a6c6f20717565207369656e746f20706f7220746920657320696e656661626c652e0a536920616c67756e20646961206d6520717569657265732c0a636f6e7469676f2070617361726520746f646f73206c6f732061746172646563657265732e</p>
+        </div>
+    </div>
+
+    <script>
+
+        let button = document.querySelector("button");
+        let BilleteDelantero = document.querySelector("div.Billete.Delantero");
+        let BilleteTrasero = document.querySelector("div.Billete.Trasero");
+        let delay = 1, MostrandoDelantero = true;
+
+        button.onclick = () => {
+            if ( MostrandoDelantero ) {
+                MostrandoDelantero = false;
+                BilleteDelantero.style = "transform: rotateY(90deg);transition: all " + delay/2 + "s ease-in;";
+                setTimeout(() => BilleteTrasero.style = "transform: rotateY(360deg);transition: all " + delay/2 + "s ease-out;", 500);
+            } else {
+                MostrandoDelantero = true;
+                BilleteTrasero.style = "transform: rotateY(270deg);transition: all " + delay/2 + "s ease-out;";
+                setTimeout(() => BilleteDelantero.style = "transform: rotateY(0deg);transition: all " + delay/2 + "s ease-in;", 500);
+            }
+        }
+
+    </script>
     
 </body>
 </html>
