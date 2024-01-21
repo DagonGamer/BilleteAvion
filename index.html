@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Billete de Avión</title>
+
+    <style>
+
+        @font-face {
+            font-family: Blogger-Sans;
+            src: url(Blogger_Sans.otf);
+        }
+
+        body {
+            --Tam: min(1vw, 1.5vh);
+
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            margin: 0px;
+            background: rgb(129, 213, 255);
+        }
+
+        div.Billete {
+            width: calc( var(--Tam) * 86 );
+            height: calc( var(--Tam) * 54 );
+            background: white;
+            border-radius: calc( var(--Tam) * 2.5 );
+            position: fixed;
+            top: calc( 50vh - var(--Tam) * 54 / 2 );
+            left: calc( 50% - var(--Tam) * 86 / 2 );
+            overflow: hidden;
+        }
+
+        div.Cabecera {
+            --c11: #59c1ff;
+            --c12: #a8dfff;
+            --c21: #6db8ff;
+            --c22: #4ba8ff;
+
+            width: 100%;
+            height: 20%;
+        }
+
+        @keyframes Cabecera {
+
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+            
+        }
+
+        div.Cabecera::before {
+            content: "";
+            background: linear-gradient(45deg, var(--c11) 0%, var(--c12) 10%, var(--c21) 10%, var(--c22) 20%, var(--c11) 20%, var(--c12) 30%, var(--c21) 30%, var(--c22) 40%, var(--c11) 40%, var(--c12) 50%, var(--c21) 50%, var(--c22) 60%, var(--c11) 60%, var(--c12) 70%, var(--c21) 70%, var(--c22) 80%, var(--c11) 80%, var(--c12) 90%, var(--c21) 90%, var(--c22) 100%);
+            width: 113%;
+            height: 20%;
+            position: absolute;
+            left: 0%;
+            animation: Cabecera 10s linear -5s infinite forwards;
+        }
+
+        div.Cabecera > p {
+            font-family: Blogger-Sans;
+            position: absolute;
+            z-index: 1;
+            top: 5%;
+            height: 10%;
+            width: 100%;
+            color: white;
+            font-size: calc( var(--Tam) * 5 );
+            margin: 0px;
+            white-space: break-spaces;
+        }
+
+        div.Cabecera::after {
+            content: "";
+            background: linear-gradient(45deg, var(--c11) 0%, var(--c12) 10%, var(--c21) 10%, var(--c22) 20%, var(--c11) 20%, var(--c12) 30%, var(--c21) 30%, var(--c22) 40%, var(--c11) 40%, var(--c12) 50%, var(--c21) 50%, var(--c22) 60%, var(--c11) 60%, var(--c12) 70%, var(--c21) 70%, var(--c22) 80%, var(--c11) 80%, var(--c12) 90%, var(--c21) 90%, var(--c22) 100%);
+            width: 113%;
+            height: 20%;
+            position: absolute;
+            left: 0%;
+            animation: Cabecera 10s linear 0s infinite forwards;
+        }
+
+        div.Contenido {
+            position: absolute;
+            top: 20%;
+            width: 100%;
+            height: 80%;
+            overflow: hidden;
+        }
+
+        div.Contenido > img {
+            position: absolute;
+            opacity: 0.2;
+            width: 61%;
+            left: 19.5%;
+        }
+
+        div.Contenido p {
+            margin: 0px;
+            position: absolute;
+            color: black;
+            font-family: Blogger-Sans;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="Billete">
+        <div class="Cabecera">
+            <p style="text-align: left;">  Billete Vitalicio</p>
+            <p style="text-align: right;">Claudia Ladrón  </p>
+        </div>
+        <div class="Contenido">
+            <img src="Mapamundi.png" alt="">
+            <p style="font-size: calc( var(--Tam) * 5);top: 5%;left: 5%;">Primera Clase</p>
+            <p style="font-size: calc( var(--Tam) * 3 );top: 20%;left: 25%;">David's Airlines</p>
+        </div>
+    </div>
+    
+</body>
+</html>
